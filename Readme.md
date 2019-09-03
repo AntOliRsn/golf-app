@@ -2,8 +2,8 @@
 
 ##TODO
 ###Backend 
-[] Defining ORM architecture 
-[] Implementing ORM architecure 
-[] Setting API framework
+- [ ] Defining ORM architecture 
+- [ ] Implementing ORM architecure 
+- [ ] Setting API framework
 
 ###Frontend
