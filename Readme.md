@@ -1,9 +1,9 @@
 # Golf app 
 
-##TODO
-###Backend 
+## TODO
+### Backend 
 - [ ] Defining ORM architecture 
 - [ ] Implementing ORM architecure 
 - [ ] Setting API framework
 
-###Frontend
+### Frontend
