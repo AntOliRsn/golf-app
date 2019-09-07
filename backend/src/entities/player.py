@@ -28,10 +28,10 @@ class Level(Base):
     player_id = Column(Integer, ForeignKey('players.id'))
     player = relationship('Player', back_populates='levels')
 
-    def __init__(self, date_valid, level, player):
+    def __init__(self, player, date_valid, level):
+        self.player = player
         self.date_valid = date_valid
         self.level = level
-        self.player = player
 
 
 if __name__ == "__main__":
