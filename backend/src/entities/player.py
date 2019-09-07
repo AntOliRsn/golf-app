@@ -3,7 +3,8 @@
 from sqlalchemy import Column, String, Integer, Date, ForeignKey
 from sqlalchemy.orm import relationship
 
-from .entity import Base, Session, engine
+from .entity import Base
+from .draw_group import association_draw_groups_players
 
 
 class Player(Base):
@@ -13,6 +14,7 @@ class Player(Base):
     first_name = Column(String)
     last_name = Column(String)
     levels = relationship("Level", back_populates="player")
+    draw_groups = relationship('DrawGroup', secondary=association_draw_groups_players, back_populates='players')
 
     def __init__(self, first_name, last_name):
         self.first_name = first_name
@@ -32,31 +34,3 @@ class Level(Base):
         self.player = player
         self.date_valid = date_valid
         self.level = level
-
-
-if __name__ == "__main__":
-
-    from datetime import datetime
-    Base.metadata.create_all(engine)
-
-    player_1 = Player("Antoine", "Rosin")
-    player_2 = Player("Guillaume", "Rosin")
-
-    level_1_1 = Level(datetime(2019,7,1), 15, player_1)
-    level_1_2 = Level(datetime(2019,8,1), 19, player_1)
-    level_2_1 = Level(datetime(2019,8,1), 23, player_2)
-
-    player_1.levels
-    player_2.levels
-
-    session = Session()
-    session.add(player_1)
-    session.add(player_2)
-
-    session.add(level_1_1)
-    session.add(level_1_2)
-    session.add(level_2_1)
-
-    session.commit()
-    session.close()
-

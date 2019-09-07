@@ -14,6 +14,7 @@ class Game(Base):
     game_format = Column(String)
     game_date = Column(Date)
     game_details = relationship("GameDetails", back_populates="game", uselist=False)
+    draw_groups = relationship("DrawGroup", back_populates="game")
 
     def __init__(self, golf, game_format, game_date):
         self.golf = golf
