@@ -14,6 +14,7 @@ Session = sessionmaker(bind=engine)
 
 Base = declarative_base()
 
+
 class Entity():
     id = Column(Integer, primary_key=True)
     created_at = Column(DateTime)
