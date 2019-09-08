@@ -17,6 +17,8 @@ def create_app():
     app.config.from_object("backend.config.cfg")
     register_extensions(app)
 
+    return app
+
 
 def register_extensions(app):
 
@@ -27,6 +29,8 @@ def register_extensions(app):
 if __name__ == "__main__":
 
     from datetime import datetime, time
+
+    app = create_app()
 
     with app.app_context():
 
@@ -55,18 +59,17 @@ if __name__ == "__main__":
 
         game_1.draw_groups
 
-        session = Session()
-        session.add(player_1)
-        session.add(player_2)
+        db.session.add(player_1)
+        db.session.add(player_2)
 
-        session.add(level_1_1)
-        session.add(level_1_2)
-        session.add(level_2_1)
+        db.session.add(level_1_1)
+        db.session.add(level_1_2)
+        db.session.add(level_2_1)
 
-        session.add(game_1)
-        session.add(game_details_1)
-        session.add(draw_group_1)
-        session.add(draw_group_2)
+        db.session.add(game_1)
+        db.session.add(game_details_1)
+        db.session.add(draw_group_1)
+        db.session.add(draw_group_2)
 
-        session.commit()
-        session.close()
+        db.session.commit()
+        db.session.close()
