@@ -9,6 +9,7 @@ class ConfigurationFromEnv:
 
         env_config = yaml.safe_load(open(env_config_path))
 
+        self.SQLALCHEMY_TRACK_MODIFICATIONS = False
         self.SQLALCHEMY_DATABASE_URI = (
             "postgresql://{user}:{pw}@{host}:{port}/{db}".format(
                 user=env_config['project-database']["user"],
