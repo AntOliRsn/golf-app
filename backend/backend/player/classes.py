@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from backend.extensions import db
-from .draw_group import association_draw_groups_players
+from backend.draw_group.classes import association_draw_groups_players
 
 
 class Player(db.Model):

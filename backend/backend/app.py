@@ -6,10 +6,9 @@ from flask import Flask
 from .extensions import cors, db
 
 # Import submodules
-from .entities.entity import Base, Session, engine
-from .entities.player import Player, Level
-from .entities.game import Game, GameDetails
-from .entities.draw_group import DrawGroup
+from backend.player.classes import Player, Level
+from backend.game.classes import Game, GameDetails
+from backend.draw_group.classes import DrawGroup
 
 
 def create_app():
