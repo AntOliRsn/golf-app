@@ -1,7 +1,28 @@
+# coding=utf-8
+
+from flask import Flask
+
+# Import extensions
+from .extensions import cors, db
+
+# Import submodules
 from .entities.entity import Base, Session, engine
 from .entities.player import Player, Level
 from .entities.game import Game, GameDetails
 from .entities.draw_group import DrawGroup
+
+
+def create_app():
+
+    app = Flask(__name__)
+    app.config.from_object("backend.config.cfg")
+    register_extensions(app)
+
+
+def register_extensions(app):
+
+    cors.init_app(app)
+    db.init_app(app)
 
 
 if __name__ == "__main__":

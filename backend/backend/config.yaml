@@ -1,0 +1,22 @@
+project:
+  log-level: DEBUG
+  hostname: lab.sia-partners.ai
+  name: demo
+  protocol: https
+project-database:
+  hostname: localhost
+  port: 54321
+  type: postgres
+  name: golf-app
+  schema: public
+  user: postgres
+  password: GOLF-APP
+authentication:
+  inhouse:
+    type: bearer
+  otherauth:
+    type: oauth2
+    client-id: toto
+    secret: tata
+    authorized-domains:
+      - sia-partners.com
