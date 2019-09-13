@@ -3,7 +3,7 @@
 from flask import Flask
 
 # Import extensions
-from backend.extensions import cors, db
+from backend.extensions import cors, db, ma
 
 # Import submodules
 from backend.player.classes import Player, Level
@@ -24,17 +24,25 @@ def register_extensions(app):
 
     cors.init_app(app)
     db.init_app(app)
+    ma.init_app(app)
 
 
 if __name__ == "__main__":
 
     from datetime import datetime, time
+    from backend.player.schemas import player_schema
 
     app = create_app()
 
     with app.app_context():
 
         db.create_all()
+
+        players = db.session.query(Player).all()
+        player_1 = players[0]
+        result = player_schema.dump(player_1)
+        print(result)
+
 
         player_1 = Player("Antoine", "Rosin")
         player_2 = Player("Guillaume", "Rosin")
