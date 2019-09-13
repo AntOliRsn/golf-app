@@ -3,7 +3,7 @@
 from flask import Flask
 
 # Import extensions
-from .extensions import cors, db
+from backend.extensions import cors, db
 
 # Import submodules
 from backend.player.classes import Player, Level
