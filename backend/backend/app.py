@@ -31,6 +31,9 @@ if __name__ == "__main__":
 
     from datetime import datetime, time
     from backend.player.schemas import player_schema, level_schema
+    from backend.game.schemas import game_schema, game_details_schema
+    from backend.draw_group.schemas import draw_group_schema
+
 
     app = create_app()
 
