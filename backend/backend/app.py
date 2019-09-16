@@ -30,7 +30,7 @@ def register_extensions(app):
 if __name__ == "__main__":
 
     from datetime import datetime, time
-    from backend.player.schemas import player_schema
+    from backend.player.schemas import player_schema, level_schema
 
     app = create_app()
 
@@ -40,7 +40,11 @@ if __name__ == "__main__":
 
         players = db.session.query(Player).all()
         player_1 = players[0]
+        level_1 = player_1.levels[0]
         result = player_schema.dump(player_1)
+        print(result)
+
+        result = level_schema.dump(level_1)
         print(result)
 
 
@@ -66,6 +70,7 @@ if __name__ == "__main__":
         draw_group_2.players = [player_3]
 
         game_1.draw_groups
+
 
         db.session.add(player_1)
         db.session.add(player_2)

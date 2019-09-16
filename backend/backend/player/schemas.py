@@ -16,7 +16,7 @@ class PlayerSchema(ma.ModelSchema):
 
 class LevelSchema(ma.ModelSchema):
 
-    player = ma.nested(
+    player = ma.Nested(
         "PlayerSchema", only=("id", "first_name", "last_name")
     )
 
