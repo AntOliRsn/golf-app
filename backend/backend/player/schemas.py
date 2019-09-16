@@ -9,15 +9,21 @@ class PlayerSchema(ma.ModelSchema):
         only=("date_valid", "level")
     )
 
-    dump_only = ("first_name", "levels")
-
     class Meta:
-            model = Player
+        model = Player
+        dump_only = ("id", )
 
 
 class LevelSchema(ma.ModelSchema):
+
+    player = ma.nested(
+        "PlayerSchema", only=("id", "first_name", "last_name")
+    )
+
     class Meta:
         model = Level
+        dump_only = ("id", )
 
 
 player_schema = PlayerSchema()
+level_schema = LevelSchema()
