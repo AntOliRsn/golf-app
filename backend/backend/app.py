@@ -44,11 +44,18 @@ if __name__ == "__main__":
         players = db.session.query(Player).all()
         player_1 = players[0]
         level_1 = player_1.levels[0]
+        draw_group_1 = player_1.draw_groups[0]
+
         result = player_schema.dump(player_1)
         print(result)
 
         result = level_schema.dump(level_1)
         print(result)
+
+        result = draw_group_schema.dump(draw_group_1)
+        print(result)
+
+
 
 
         player_1 = Player("Antoine", "Rosin")

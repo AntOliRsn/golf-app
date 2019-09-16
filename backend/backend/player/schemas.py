@@ -9,6 +9,11 @@ class PlayerSchema(ma.ModelSchema):
         only=("date_valid", "level")
     )
 
+    draw_groups = ma.Nested(
+        "DrawGroupSchema", many=True,
+        only=("id", "game")
+    )
+
     class Meta:
         model = Player
         dump_only = ("id", )
