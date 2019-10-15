@@ -1,6 +1,7 @@
 # coding=utf-8
-
 import yaml
+
+from backend.utils import relative_path
 
 
 class ConfigurationFromEnv:
@@ -27,5 +28,6 @@ class ConfigurationFromEnv:
 
 
 # Temporary for dev mode
-env_config_path = "backend/config.yaml"
-cfg = ConfigurationFromEnv(env_config_path)
+#env_config_path = "backend/config.yaml"
+#cfg = ConfigurationFromEnv(env_config_path)
+cfg = ConfigurationFromEnv(relative_path(__file__, "./config.yaml"))

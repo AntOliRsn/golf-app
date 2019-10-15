@@ -4,7 +4,7 @@ from backend.player.schemas import players_schema, player_schema, level_schema
 
 player_blueprint = Blueprint("player", __name__)
 
-@player_blueprint.route("/players", method=["GET"])
+@player_blueprint.route("/players", methods=["GET"])
 def get_players():
     """
     Get all Players.
@@ -23,12 +23,12 @@ def get_players():
              schema:
                type: array
                items:
-                 $ref: '#/components/schemas/PlayerSchema'
+                 $ref: '#/definitions/Player'
     """
     all_players = Player.query.all()
     result = players_schema.dump(all_players)
 
-    return jsonify(result.data)
+    return jsonify(result)
 
 
 
