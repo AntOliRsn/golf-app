@@ -31,4 +31,6 @@ class LevelSchema(ma.ModelSchema):
 
 
 player_schema = PlayerSchema()
+players_schema = PlayerSchema(many=True)
+
 level_schema = LevelSchema()
