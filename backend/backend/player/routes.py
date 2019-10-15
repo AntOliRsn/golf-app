@@ -8,7 +8,6 @@ player_blueprint = Blueprint("player", __name__)
 def get_players():
     """
     Get all Players.
-
     ---
     get:
      description: Get all Players
@@ -23,7 +22,7 @@ def get_players():
              schema:
                type: array
                items:
-                 $ref: '#/definitions/Player'
+                 $ref: '#/components/schemas/Player'
     """
     all_players = Player.query.all()
     result = players_schema.dump(all_players)

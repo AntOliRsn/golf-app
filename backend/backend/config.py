@@ -23,7 +23,10 @@ class ConfigurationFromEnv:
         self.APISPEC = {
             "title": "golf_app",
             "version": "0.0.1",
-            "openapi_version": "2.0"
+            "openapi_version": "3.0.2"
+        }
+        self.SWAGGER = {
+            "openapi": '3.0.2'
         }
 
 
