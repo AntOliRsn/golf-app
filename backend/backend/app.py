@@ -45,6 +45,7 @@ if __name__ == "__main__":
         player_1 = players[0]
         level_1 = player_1.levels[0]
         draw_group_1 = player_1.draw_groups[0]
+        game_1 = draw_group_1.game
 
         result = player_schema.dump(player_1)
         print(result)
@@ -55,8 +56,8 @@ if __name__ == "__main__":
         result = draw_group_schema.dump(draw_group_1)
         print(result)
 
-
-
+        result = game_schema.dump(game_1)
+        print(result)
 
         player_1 = Player("Antoine", "Rosin")
         player_2 = Player("Guillaume", "Rosin")

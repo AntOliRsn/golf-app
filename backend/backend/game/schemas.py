@@ -5,13 +5,13 @@ from backend.game.classes import Game, GameDetails
 class GameSchema(ma.ModelSchema):
 
     game_details = ma.Nested(
-        "GameDetailsSchema", exclude=("id", )
+        "GameDetailsSchema", exclude=("id", "game")
     )
 
     draw_groups = ma.Nested(
         "DrawGroupSchema",
         many=True,
-        exclude=("id", )
+        exclude=("id", "game")
     )
 
     class Meta:

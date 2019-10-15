@@ -19,6 +19,11 @@ class ConfigurationFromEnv:
                 port=env_config['project-database']["port"]
             )
         )
+        self.APISPEC = {
+            "title": "golf_app",
+            "version": "0.0.1",
+            "openapi_version": "2.0"
+        }
 
 
 # Temporary for dev mode
